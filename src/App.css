@@ -1,0 +1,238 @@
+/* APP CSS START */
+
+.container-main {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #71ef8b;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.weather-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #71ef8b;
+}
+
+.content-main {
+  background-color: #71ef8b;
+}
+
+/* APP CSS END */
+/* FOOTER CSS START */
+
+.grass-background-1 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.grass-background-2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.grass-background-div {
+  padding-bottom: 100px;
+}
+
+/* FOOTER CSS END */
+/* HEADER CSS START */
+
+.header-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-left: 50px;
+}
+
+/* HEADER CSS END */
+/* LANDER CSS START */
+
+.lander-flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lander-menu {
+  font-family: "just another hand";
+  font-size: 70px;
+  color: #29923e;
+}
+
+.lander-menu-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.lander-menu:hover {
+  color: white;
+}
+
+/* LANDER CSS END */
+/* LOGIN CSS START */
+
+.login-signup-forms {
+  font-family: "zilla slab";
+  font-size: 40px;
+  color: #29923e;
+}
+
+/*  LOGIN CSS END */
+/* NAVBAR CSS START */
+
+.nav-bar-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #71ef8b;
+  align-items: center;
+}
+
+.nav-bar-logout {
+  background: url("https://res.cloudinary.com/april-skrine/image/upload/v1649444942/birdie.bogey/logout3_mstyj7.jpg");
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 75px;
+  text-align: center;
+  font-family: "just another hand";
+  font-size: 30px;
+  color: #29923e;
+  margin-top: 10px;
+}
+
+.nav-bar-logout:hover {
+  color: white;
+}
+
+.nav-bar-golf-balls {
+  background-image: url("https://res.cloudinary.com/april-skrine/image/upload/v1649173862/birdie.bogey/golfballmenu-removebg-preview_ovqmcp.png");
+  width: 200px;
+  height: 200px;
+}
+
+.nav-bar-link {
+  text-align: center;
+  font-family: "just another hand";
+  font-size: 40px;
+  vertical-align: center;
+  color: black;
+}
+
+.nav-bar-link:hover {
+  color: #29923e;
+}
+
+/* NAVBAR CSS END */
+/* SCRATCHPAD CSS START */
+
+td, tr, th {
+  border: 1px solid black;
+}
+table {
+  border-collapse: collapse;
+}
+td, th {
+  min-width: 50px;
+  height: 21px;
+}
+span {
+  width: 100%;
+  display: block;
+}
+
+/* SCRATCHPAD CSS END */
+/*  SIGNUP CSS START */
+
+.login-signup-forms {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  display: block;
+  font-size: 11px;
+  padding: 4px 2px;
+  border: solid 1px #aacfe4;
+  width: 70px;
+  margin: 2px 0 20px 10px;
+}
+
+/* SIGNUP CSS END */
+/* TEE TIMES CSS START */
+
+.tee-time-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.tee-times-posts {
+  background-image: url('https://res.cloudinary.com/april-skrine/image/upload/v1649779048/birdie.bogey/teetimes3_zttjpt.jpg');
+  background-repeat: no-repeat;
+  width: 600px;
+  height: 700px;
+}
+
+.tee-times-inner-posts {
+  margin-top: 80px;
+  margin-left: 40px;
+  width: 560px;
+  height: 600px;
+  overflow-y: auto;
+  font-family: "zilla slab";
+  font-size: 30px;
+}
+
+/* TEE TIMES CSS END */
+/* WEATHER CSS START */
+
+.weather {
+  background-image: url("https://res.cloudinary.com/april-skrine/image/upload/v1649175411/birdie.bogey/weathersun-removebg-preview_hs4bzr.png");
+  background-repeat: no-repeat;
+  width: 350px;
+  height: 350px;
+  font-family: "just another hand";
+  font-size: 40px;
+  margin-top: -400px;
+  align-items: center;
+  align-content: center;
+}
+
+.weather-forecast-paragraph {
+  text-align: center;
+  vertical-align: center;
+  line-height: 0px;
+}
+
+.weather-paragraph-2 {
+  text-align: center;
+  vertical-align: center;
+  line-height: 50px;
+  margin-top: 100px;
+}
+
+.button-weather {
+  background-color: #fbd884;
+  border: none;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  font-family: "zilla slab";
+  font-size: 15px;
+}
+
+/* WEATHER CSS END */
