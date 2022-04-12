@@ -48,7 +48,7 @@ function Signup({ setCurrentUser }) {
         </div>
         <div className="lander-menu-flex">
           <div className="login-signup-forms">
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} className="form-style-4">
               <div>
                 <label>username:</label>
                 <input
@@ -77,15 +77,11 @@ function Signup({ setCurrentUser }) {
                   onChange={(e) => setNewLocation(e.target.value)}
                 ></input>
               </div>
-              <div>
-                <button type="submit">sign-up!</button>
-              </div>
-            </form>
-            <div>
+              <input type="submit" value="sign-up!" style={{marginTop: '20px'}}/>
               <Link to="/">
-                <button>back</button>
+              <input type="button" value="back" style={{marginLeft: '20px'}}/>
               </Link>
-            </div>
+            </form>
           </div>
         </div>
       </div>

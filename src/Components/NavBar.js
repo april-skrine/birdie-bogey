@@ -26,7 +26,7 @@ function NavBar({ user, handleLogout }) {
             onClick={handleLogout}
             style={{ cursor: "pointer" }}
           >
-            {`logout`}
+            {`<< logout`}
           </div>
         )}
       </div>

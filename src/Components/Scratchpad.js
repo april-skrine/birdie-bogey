@@ -6,7 +6,7 @@ function Scratchpad() {
   return (
     <div style={{ backgroundColor: "#71EF8B" }}>
       <div className="lander-flex-container">
-        LOG NEW GAME:
+        <img src="https://res.cloudinary.com/april-skrine/image/upload/v1649796302/birdie.bogey/newround-removebg-preview_texmkf.png" alt="log round"/>
         <div className="lander-menu-flex">
           <Link to="/eighteenholes" style={{ textDecoration: "none" }}>
             <div className="lander-menu">18 Holes</div>

@@ -43,7 +43,7 @@ function Login({ setCurrentUser, setIsAuthenticated, setUserScores }) {
           />
         </div>
         <div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="form-style-4">
             <label>username:</label>
             <input
               type="text"
@@ -58,16 +58,14 @@ function Login({ setCurrentUser, setIsAuthenticated, setUserScores }) {
               onChange={(e) => setPassword(e.target.value)}
               className="input-boxes"
             />
-            <button className="button-header" type="submit">
-              login
-            </button>
+            <div>
+            <input type="submit" value="login" style={{marginTop: '20px'}}/>
+            <Link to="/">
+              <input type="button" value="back" style={{marginLeft: '20px'}}/>
+              </Link>
+              </div>
           </form>
-        </div>
-        <div>
-          <Link to="/">
-            <button>back</button>
-          </Link>
-        </div>
+          </div>
       </div>
     </div>
   );

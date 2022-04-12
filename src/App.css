@@ -1,3 +1,79 @@
+.form-style-4{
+	width: 450px;
+	font-size: 16px;
+	background: white;
+	padding: 30px 30px 15px 30px;
+	border: 5px solid #29923e;
+}
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button],
+.form-style-4 input[type=text],
+.form-style-4 input[type=email],
+.form-style-4 input[type=password],
+.form-style-4 textarea,
+.form-style-4 label
+{
+	font-family: "zilla slab";
+	font-size: 20px;
+	color: black;
+
+}
+.form-style-4 label {
+	display:block;
+	margin-bottom: 10px;
+}
+.form-style-4 label > span{
+	display: inline-block;
+	width: 150px;
+}
+.form-style-4 input[type=text],
+.form-style-4 input[type=email],
+.form-style-4 input[type=password] 
+{
+	background: transparent;
+	border: none;
+	border-bottom: 1px dashed #71ef8b;
+	width: 275px;
+	outline: none;
+	padding: 0px 0px 0px 0px;
+	font-style: italic;
+  margin-bottom: 10px;
+}
+.form-style-4 textarea{
+	font-style: italic;
+	padding: 0px 0px 0px 0px;
+	background: transparent;
+	outline: none;
+	border: none;
+	border-bottom: 1px dashed #71ef8b;
+	width: 275px;
+	overflow: hidden;
+	resize:none;
+	height:20px;
+}
+
+.form-style-4 textarea:focus, 
+.form-style-4 input[type=text]:focus,
+.form-style-4 input[type=email]:focus,
+.form-style-4 input[type=email] :focus,
+.form-style-4 input[type=password] :focus
+{
+	border-bottom: 1px dashed #29923e;
+}
+
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button]{
+	background: #29923e;
+	border: none;
+	padding: 8px 10px 8px 10px;
+	border-radius: 5px;
+	color: white;
+}
+.form-style-4 input[type=submit]:hover,
+.form-style-4 input[type=button]:hover{
+background: #29923e;
+}
+
 /* APP CSS START */
 
 .container-main {
@@ -100,15 +176,15 @@
 }
 
 .nav-bar-logout {
-  background: url("https://res.cloudinary.com/april-skrine/image/upload/v1649444942/birdie.bogey/logout3_mstyj7.jpg");
-  background-repeat: no-repeat;
+  /* background: url("https://res.cloudinary.com/april-skrine/image/upload/v1649444942/birdie.bogey/logout3_mstyj7.jpg");
+  background-repeat: no-repeat; */
   width: 150px;
   height: 75px;
   text-align: center;
   font-family: "just another hand";
-  font-size: 30px;
+  font-size: 60px;
   color: #29923e;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .nav-bar-logout:hover {
@@ -125,7 +201,6 @@
   text-align: center;
   font-family: "just another hand";
   font-size: 40px;
-  vertical-align: center;
   color: black;
 }
 
@@ -200,17 +275,16 @@ span {
   background-image: url("https://res.cloudinary.com/april-skrine/image/upload/v1649175411/birdie.bogey/weathersun-removebg-preview_hs4bzr.png");
   background-repeat: no-repeat;
   width: 350px;
-  height: 350px;
+  height: 550px;
   font-family: "just another hand";
   font-size: 40px;
-  margin-top: -400px;
+  /* margin-top: -400px;
   align-items: center;
-  align-content: center;
+  align-content: center; */
 }
 
 .weather-forecast-paragraph {
   text-align: center;
-  vertical-align: center;
   line-height: 0px;
 }
 
