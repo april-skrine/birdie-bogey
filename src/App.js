@@ -70,7 +70,7 @@ function App() {
             }
           />
           <Route exact path="/signup" element={<Signup />} />
-          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/home" element={<Home user={user}/>} />
           <Route
             exact
             path="/scratchpad"
@@ -81,7 +81,7 @@ function App() {
             path="/scores"
             element={
               isAuthenticated ? (
-                <UserScores user={user} userScores={userScores} user={user}/>
+                <UserScores user={user} userScores={userScores}/>
               ) : (
                 <NotLoggedIn />
               )

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 // 2. Tally the score of the round
 // 3. Send it as an object post to the backend to store score data
 
-function EighteenHoles({ user, userScores, setUserScores}) {
+function EighteenHoles({ user, userScores, setUserScores }) {
   const [courseName, setCourseName] = useState("");
   const [userDate, setUserDate] = useState(0);
   const [holeOne, setHoleOne] = useState(0);
@@ -102,431 +102,455 @@ function EighteenHoles({ user, userScores, setUserScores}) {
       },
       body: JSON.stringify(newRoundScore),
     }).then((r) => r.json());
-    const newArray = [...userScores, newRoundScore]
-    setUserScores(newArray)
+    const newArray = [...userScores, newRoundScore];
+    setUserScores(newArray);
     alert("Round saved successfully!");
     navigate("/scores");
   };
 
   return (
     <div>
-      <p>course name:</p>
+      <h2 style={{ fontFamily: "zilla slab", color: "#29923e" }}>
+        course name:
+      </h2>
       <input
         type="text"
         name="course name"
         onChange={(e) => setCourseName(e.target.value)}
       ></input>
-      <p>date played:</p>
+      <h2 style={{ fontFamily: "zilla slab", color: "#29923e" }}>
+        date played:
+      </h2>
       <input
         type="date"
         name="date"
         onChange={(e) => setUserDate(e.target.value)}
       ></input>
       <p></p>
-      <table>
-        <tr>
-          <td>Hole</td>
-          <td>Par</td>
-          <td>Your Score</td>
-        </tr>
-        <tr>
-          <td>one</td>
-          <td>
-            <form id="form1">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form1"
-              type="number"
-              name="par1"
-              onChange={(e) => setParOne(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form1"
-              type="number"
-              name="score1"
-              onChange={(e) => setHoleOne(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>two</td>
-          <td>
-            <form id="form2">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form2"
-              type="number"
-              name="par2"
-              onChange={(e) => setParTwo(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form2"
-              type="number"
-              name="score2"
-              onChange={(e) => setHoleTwo(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>three</td>
-          <td>
-            <form id="form3">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form3"
-              type="number"
-              name="par3"
-              onChange={(e) => setParThree(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form3"
-              type="number"
-              name="score3"
-              onChange={(e) => setHoleThree(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>four</td>
-          <td>
-            <form id="form4">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form4"
-              type="number"
-              name="par4"
-              onChange={(e) => setParFour(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form4"
-              type="number"
-              name="score4"
-              onChange={(e) => setHoleFour(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>five</td>
-          <td>
-            <form id="form5">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form5"
-              type="number"
-              name="par5"
-              onChange={(e) => setParFive(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form5"
-              type="number"
-              name="score5"
-              onChange={(e) => setHoleFive(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>six</td>
-          <td>
-            <form id="form6">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form6"
-              type="number"
-              name="par6"
-              onChange={(e) => setParSix(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form6"
-              type="number"
-              name="score6"
-              onChange={(e) => setHoleSix(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>seven</td>
-          <td>
-            <form id="form7">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form7"
-              type="number"
-              name="par7"
-              onChange={(e) => setParSeven(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form7"
-              type="number"
-              name="score7"
-              onChange={(e) => setHoleSeven(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>eight</td>
-          <td>
-            <form id="form8">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form8"
-              type="number"
-              name="par8"
-              onChange={(e) => setParEight(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form8"
-              type="number"
-              name="score8"
-              onChange={(e) => setHoleEight(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>nine</td>
-          <td>
-            <form id="form9">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form9"
-              type="number"
-              name="par9"
-              onChange={(e) => setParNine(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form9"
-              type="number"
-              name="score9"
-              onChange={(e) => setHoleNine(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>ten</td>
-          <td>
-            <form id="form10">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form10"
-              type="number"
-              name="par10"
-              onChange={(e) => setParTen(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form10"
-              type="number"
-              name="score10"
-              onChange={(e) => setHoleTen(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>eleven</td>
-          <td>
-            <form id="form11">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form11"
-              type="number"
-              name="par11"
-              onChange={(e) => setParEleven(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form11"
-              type="number"
-              name="score11"
-              onChange={(e) => setHoleEleven(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>twelve</td>
-          <td>
-            <form id="form12">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form12"
-              type="number"
-              name="par12"
-              onChange={(e) => setParTwelve(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form12"
-              type="number"
-              name="score12"
-              onChange={(e) => setHoleTwelve(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>thirteen</td>
-          <td>
-            <form id="form13">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form13"
-              type="number"
-              name="par13"
-              onChange={(e) => setParThirteen(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form13"
-              type="number"
-              name="score13"
-              onChange={(e) => setHoleThirteen(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>fourteen</td>
-          <td>
-            <form id="form14">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form14"
-              type="number"
-              name="par14"
-              onChange={(e) => setParFourteen(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form14"
-              type="number"
-              name="score14"
-              onChange={(e) => setHoleFourteen(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>fifteen</td>
-          <td>
-            <form id="form15">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form15"
-              type="number"
-              name="par15"
-              onChange={(e) => setParFifteen(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form15"
-              type="number"
-              name="score15"
-              onChange={(e) => setHoleFifteen(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>sixteen</td>
-          <td>
-            <form id="form16">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form16"
-              type="number"
-              name="par16"
-              onChange={(e) => setParSixteen(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form16"
-              type="number"
-              name="score16"
-              onChange={(e) => setHoleSixteen(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>seventeen</td>
-          <td>
-            <form id="form17">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form17"
-              type="number"
-              name="par17"
-              onChange={(e) => setParSeventeen(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form17"
-              type="number"
-              name="score17"
-              onChange={(e) => setHoleSeventeen(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>eighteen</td>
-          <td>
-            <form id="form18">
-              <input type="hidden" name="id" />
-            </form>
-            <input
-              form="form18"
-              type="number"
-              name="par18"
-              onChange={(e) => setParEighteen(parseInt(e.target.value))}
-            />
-          </td>
-          <td>
-            <input
-              form="form18"
-              type="number"
-              name="score18"
-              onChange={(e) => setHoleEighteen(parseInt(e.target.value))}
-            />
-          </td>
-        </tr>
-      </table>
-      <button onClick={(e) => logNewScoreEighteen(e)}>Save round!</button>
+      <div className="table-scroll">
+        <table style={{ fontFamily: "zilla slab", border: "4px solid white" }}>
+          <tr>
+            <td style={{ fontFamily: "zilla slab", fontSize: "25px" }}>
+              hole
+            </td>
+            <td style={{ fontFamily: "zilla slab", fontSize: "25px" }}>
+              par
+            </td>
+            <td style={{ fontFamily: "zilla slab", fontSize: "25px" }}>
+              strokes
+            </td>
+          </tr>
+          <tr>
+            <td>one</td>
+            <td>
+              <form id="form1">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form1"
+                type="number"
+                name="par1"
+                onChange={(e) => setParOne(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form1"
+                type="number"
+                name="score1"
+                onChange={(e) => setHoleOne(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>two</td>
+            <td>
+              <form id="form2">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form2"
+                type="number"
+                name="par2"
+                onChange={(e) => setParTwo(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form2"
+                type="number"
+                name="score2"
+                onChange={(e) => setHoleTwo(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>three</td>
+            <td>
+              <form id="form3">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form3"
+                type="number"
+                name="par3"
+                onChange={(e) => setParThree(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form3"
+                type="number"
+                name="score3"
+                onChange={(e) => setHoleThree(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>four</td>
+            <td>
+              <form id="form4">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form4"
+                type="number"
+                name="par4"
+                onChange={(e) => setParFour(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form4"
+                type="number"
+                name="score4"
+                onChange={(e) => setHoleFour(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>five</td>
+            <td>
+              <form id="form5">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form5"
+                type="number"
+                name="par5"
+                onChange={(e) => setParFive(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form5"
+                type="number"
+                name="score5"
+                onChange={(e) => setHoleFive(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>six</td>
+            <td>
+              <form id="form6">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form6"
+                type="number"
+                name="par6"
+                onChange={(e) => setParSix(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form6"
+                type="number"
+                name="score6"
+                onChange={(e) => setHoleSix(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>seven</td>
+            <td>
+              <form id="form7">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form7"
+                type="number"
+                name="par7"
+                onChange={(e) => setParSeven(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form7"
+                type="number"
+                name="score7"
+                onChange={(e) => setHoleSeven(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>eight</td>
+            <td>
+              <form id="form8">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form8"
+                type="number"
+                name="par8"
+                onChange={(e) => setParEight(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form8"
+                type="number"
+                name="score8"
+                onChange={(e) => setHoleEight(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>nine</td>
+            <td>
+              <form id="form9">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form9"
+                type="number"
+                name="par9"
+                onChange={(e) => setParNine(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form9"
+                type="number"
+                name="score9"
+                onChange={(e) => setHoleNine(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>ten</td>
+            <td>
+              <form id="form10">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form10"
+                type="number"
+                name="par10"
+                onChange={(e) => setParTen(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form10"
+                type="number"
+                name="score10"
+                onChange={(e) => setHoleTen(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>eleven</td>
+            <td>
+              <form id="form11">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form11"
+                type="number"
+                name="par11"
+                onChange={(e) => setParEleven(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form11"
+                type="number"
+                name="score11"
+                onChange={(e) => setHoleEleven(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>twelve</td>
+            <td>
+              <form id="form12">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form12"
+                type="number"
+                name="par12"
+                onChange={(e) => setParTwelve(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form12"
+                type="number"
+                name="score12"
+                onChange={(e) => setHoleTwelve(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>thirteen</td>
+            <td>
+              <form id="form13">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form13"
+                type="number"
+                name="par13"
+                onChange={(e) => setParThirteen(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form13"
+                type="number"
+                name="score13"
+                onChange={(e) => setHoleThirteen(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>fourteen</td>
+            <td>
+              <form id="form14">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form14"
+                type="number"
+                name="par14"
+                onChange={(e) => setParFourteen(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form14"
+                type="number"
+                name="score14"
+                onChange={(e) => setHoleFourteen(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>fifteen</td>
+            <td>
+              <form id="form15">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form15"
+                type="number"
+                name="par15"
+                onChange={(e) => setParFifteen(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form15"
+                type="number"
+                name="score15"
+                onChange={(e) => setHoleFifteen(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>sixteen</td>
+            <td>
+              <form id="form16">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form16"
+                type="number"
+                name="par16"
+                onChange={(e) => setParSixteen(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form16"
+                type="number"
+                name="score16"
+                onChange={(e) => setHoleSixteen(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>seventeen</td>
+            <td>
+              <form id="form17">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form17"
+                type="number"
+                name="par17"
+                onChange={(e) => setParSeventeen(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form17"
+                type="number"
+                name="score17"
+                onChange={(e) => setHoleSeventeen(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>eighteen</td>
+            <td>
+              <form id="form18">
+                <input type="hidden" name="id" />
+              </form>
+              <input
+                form="form18"
+                type="number"
+                name="par18"
+                onChange={(e) => setParEighteen(parseInt(e.target.value))}
+              />
+            </td>
+            <td>
+              <input
+                form="form18"
+                type="number"
+                name="score18"
+                onChange={(e) => setHoleEighteen(parseInt(e.target.value))}
+              />
+            </td>
+          </tr>
+        </table>
+        <button
+          style={{
+            backgroundColor: "#29923e",
+            marginTop: "10px",
+            border: "4px solid white",
+            fontFamily: "just another hand",
+            fontSize: "40px",
+            color: "white",
+          }}
+          onClick={(e) => logNewScoreEighteen(e)}
+        >
+          save round!
+        </button>
+      </div>
     </div>
   );
 }
