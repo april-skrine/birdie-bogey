@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function Signup({ setCurrentUser }) {
   const [newUsername, setNewUsername] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const [newPasswordConf, setNewPasswordConf] = useState("");
   const [newName, setNewName] = useState("");
   const [newLocation, setNewLocation] = useState("");
 
@@ -19,18 +20,22 @@ function Signup({ setCurrentUser }) {
       location: newLocation,
     };
     if (newUser.username !== "") {
-      if (newUser.password.length >= 5 && newUser.password.length <= 10) {
-        fetch("/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newUser),
-        }).then((r) => r.json());
-        alert("User Created Successfully");
-        navigate("/login");
+      if (newPassword === newPasswordConf) {
+        if (newUser.password.length >= 5 && newUser.password.length <= 10) {
+          fetch("/users", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUser),
+          }).then((r) => r.json());
+          alert("User Created Successfully");
+          navigate("/login");
+        } else {
+          alert("Password must be between 5 and 10 characters");
+        }
       } else {
-        alert("Password must be between 5 and 10 characters");
+        alert("Passwords must match!");
       }
     } else {
       alert("Must enter a username");
@@ -59,8 +64,15 @@ function Signup({ setCurrentUser }) {
               <div>
                 <label>password:</label>
                 <input
-                  type="text"
+                  type="password"
                   onChange={(e) => setNewPassword(e.target.value)}
+                ></input>
+              </div>
+              <div>
+                <label>confirm password:</label>
+                <input
+                  type="password"
+                  onChange={(e) => setNewPasswordConf(e.target.value)}
                 ></input>
               </div>
               <div>
@@ -77,9 +89,17 @@ function Signup({ setCurrentUser }) {
                   onChange={(e) => setNewLocation(e.target.value)}
                 ></input>
               </div>
-              <input type="submit" value="sign-up!" style={{marginTop: '20px'}}/>
+              <input
+                type="submit"
+                value="sign-up!"
+                style={{ marginTop: "20px" }}
+              />
               <Link to="/">
-              <input type="button" value="back" style={{marginLeft: '20px'}}/>
+                <input
+                  type="button"
+                  value="back"
+                  style={{ marginLeft: "20px" }}
+                />
               </Link>
             </form>
           </div>

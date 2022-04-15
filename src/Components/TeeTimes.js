@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import TeeCard from "./TeeCard";
 
 // have an input where users can create a tee time
@@ -7,13 +6,13 @@ import TeeCard from "./TeeCard";
 // allow any user to comment on a tee time
 // allow the user who posted it to delete a tee time?
 
-function TeeTimes({ user }) {
+function TeeTimes({ user, formatDate }) {
   const [allTeeTimes, setAllTeeTimes] = useState([]);
   const [golfCourse, setGolfCourse] = useState("");
   const [location, setLocation] = useState("");
   const [holes, setHoles] = useState("");
   const [time, setTime] = useState("");
-  const navigate = useNavigate();
+  const [date, setDate] = useState(0);
 
   useEffect(() => {
     fetch(`/tee_times`)
@@ -31,56 +30,68 @@ function TeeTimes({ user }) {
       .then((newTeeTime) => setAllTeeTimes([...allTeeTimes, newTeeTime]));
   };
 
+  console.log(date)
+
   const onSubmit = (e) => {
     e.preventDefault();
     const newTeeTime = {
       golf_course: golfCourse,
       location: location,
       number_of_holes: holes,
+      date: date,
       time: time,
       user_id: user.id,
     };
     addTeeTime(newTeeTime);
     e.target.reset();
-    navigate("/tee-times");
+    window.location.reload()
   };
 
   return (
-      <div className="tee-time-flex">
-        <div className="tee-times-posts">
-          <div className="tee-times-inner-posts">
-            {allTeeTimes.map((tt) => (
-              <TeeCard key={tt.id} teetime={tt} />
-            ))}
-          </div>
-        </div>
-        <div>
-          <form onSubmit={onSubmit}>
-            <label>Course:</label>
-            <input
-              type="text"
-              onChange={(e) => setGolfCourse(e.target.value)}
-            ></input>
-            <label>City:</label>
-            <input
-              type="text"
-              onChange={(e) => setLocation(e.target.value)}
-            ></input>
-            <label>Playing:</label>
-            <select name="holes" onChange={(e) => setHoles(e.target.value)}>
-              <option value="select"></option>
-              <option value="18">18 holes</option>
-              <option value="9">9 holes</option>
-            </select>
-            <label>Tee Time:</label>
-            <input
-              type="time"
-              onChange={(e) => setTime(e.target.value)}
-            ></input>
-            <button type="submit">Post Tee Time!</button>
-          </form>
+    <div className="tee-time-flex">
+      <div className="tee-times-posts">
+        <div className="tee-times-inner-posts">
+          {allTeeTimes.map((tt) => (
+            <TeeCard key={tt.id} teetime={tt} formatDate={formatDate}/>
+          ))}
         </div>
       </div>
+      <div>
+        <form
+          onSubmit={onSubmit}
+          className="form-style-4"
+          style={{ marginLeft: "20px", marginTop: "100px" }}
+        >
+          <label>Course:</label>
+          <input
+            type="text"
+            onChange={(e) => setGolfCourse(e.target.value)}
+          ></input>
+          <label>City:</label>
+          <input
+            type="text"
+            onChange={(e) => setLocation(e.target.value)}
+          ></input>
+          <label>Playing:</label>
+          <select name="holes" onChange={(e) => setHoles(e.target.value)}>
+            <option value="select"></option>
+            <option value="18">18 holes</option>
+            <option value="9">9 holes</option>
+          </select>
+          <label style={{marginTop: '20px'}}>Tee Time:</label>
+          <input type="time" onChange={(e) => setTime(e.target.value)}></input>
+          <label style={{marginTop: '20px'}}>Date:</label>
+          <input type="date" onChange={(e) => setDate(e.target.value)}></input>
+          <div>
+            <input
+                type="submit"
+                value="post tee time!"
+                style={{ marginTop: "20px" }}
+              />
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
 

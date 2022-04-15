@@ -38,8 +38,13 @@ function App() {
     });
     setCurrentUser(null);
     setIsAuthenticated(false);
-    setUserScores({})
+    setUserScores({});
     navigate("/");
+  };
+
+  const formatDate = (somedate) => {
+    let dateArr = somedate.split("-");
+    return `${dateArr[1]}/${dateArr[2]}/${dateArr[0]}`;
   };
 
   return (
@@ -62,50 +67,96 @@ function App() {
             exact
             path="/login"
             element={
-              <Login
-                setCurrentUser={setCurrentUser}
-                setIsAuthenticated={setIsAuthenticated}
-                setUserScores={setUserScores}
-              />
+              <div className="content-main">
+                <Login
+                  setCurrentUser={setCurrentUser}
+                  setIsAuthenticated={setIsAuthenticated}
+                  setUserScores={setUserScores}
+                />
+              </div>
             }
           />
-          <Route exact path="/signup" element={<Signup />} />
-          <Route exact path="/home" element={<Home user={user}/>} />
+          <Route
+            exact
+            path="/signup"
+            element={
+              <div className="content-main">
+                <Signup />
+              </div>
+            }
+          />
+          <Route
+            exact
+            path="/home"
+            element={
+              <div className="content-main">
+                <Home user={user} />
+              </div>
+            }
+          />
           <Route
             exact
             path="/scratchpad"
-            element={isAuthenticated ? <Scratchpad /> : <NotLoggedIn />}
+            element={
+              <div className="content-main">
+                {isAuthenticated ? <Scratchpad /> : <NotLoggedIn />}
+              </div>
+            }
           />
           <Route
             exact
             path="/scores"
             element={
-              isAuthenticated ? (
-                <UserScores user={user} userScores={userScores}/>
-              ) : (
-                <NotLoggedIn />
-              )
+              <div className="content-main">
+                {isAuthenticated ? (
+                  <UserScores user={user} userScores={userScores} formatDate={formatDate}/>
+                ) : (
+                  <NotLoggedIn />
+                )}
+              </div>
             }
           />
           <Route
             exact
             path="/tee-times"
             element={
-              isAuthenticated ? <TeeTimes user={user} /> : <NotLoggedIn />
+              <div className="content-main">
+                {isAuthenticated ? <TeeTimes user={user} formatDate={formatDate}/> : <NotLoggedIn />}
+              </div>
             }
           />
           <Route
             exact
             path="/eighteenholes"
             element={
-              isAuthenticated ? <EighteenHoles user={user} setUserScores={setUserScores} userScores={userScores}/> : <NotLoggedIn />
+              <div className="content-main">
+                {isAuthenticated ? (
+                  <EighteenHoles
+                    user={user}
+                    setUserScores={setUserScores}
+                    userScores={userScores}
+                  />
+                ) : (
+                  <NotLoggedIn />
+                )}
+              </div>
             }
           />
           <Route
             exact
             path="/nineholes"
             element={
-              isAuthenticated ? <NineHoles user={user} setUserScores={setUserScores} userScores={userScores}/> : <NotLoggedIn />
+              <div className="content-main">
+                {isAuthenticated ? (
+                  <NineHoles
+                    user={user}
+                    setUserScores={setUserScores}
+                    userScores={userScores}
+                  />
+                ) : (
+                  <NotLoggedIn />
+                )}
+              </div>
             }
           />
         </Routes>

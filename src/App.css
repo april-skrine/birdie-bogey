@@ -135,8 +135,39 @@
 /* NAVBAR CSS END */
 /* SCORECARD CSS START */
 
-.container {
-  border: 2px solid white;
+.scores-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.scores-container {
+  padding: 2px 16px;
+  margin: 10px;
+}
+
+.scores-card {
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  border: 2px #29923e solid;
+  margin: 20px;
+  font-family: 'zilla slab';
+}
+
+.scores-header {
+  max-height:100px;
+  background: #29923e;
+  color: white;
+  font-family: 'zilla slab';
+  font-size: 20px;
+  text-align: center;
+}
+
+hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
 /* SCORECARD CSS END */
@@ -180,7 +211,7 @@ span {
   display: block;
   font-size: 11px;
   padding: 4px 2px;
-  border: solid 1px #aacfe4;
+  border: solid 1px #71ef8b;
   width: 70px;
   margin: 2px 0 20px 10px;
 }
@@ -203,11 +234,17 @@ span {
 .tee-times-inner-posts {
   margin-top: 80px;
   margin-left: 40px;
-  width: 560px;
+  width: 420px;
   height: 600px;
   overflow-y: auto;
   font-family: "zilla slab";
   font-size: 30px;
+}
+
+.tee-card {
+  font-family: "zilla slab";
+  font-size: 20px;
+  line-height: 5px;
 }
 
 /* TEE TIMES CSS END */

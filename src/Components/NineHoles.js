@@ -69,7 +69,7 @@ function NineHoles({ user, userScores, setUserScores }) {
     const newArray = [...userScores, newRoundScore];
     setUserScores(newArray);
     alert("Round saved successfully!");
-    navigate("/scores");
+    navigate("/home");
   };
 
   return (
