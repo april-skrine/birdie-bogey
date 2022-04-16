@@ -13,7 +13,7 @@ function TeeTimes({ user, formatDate }) {
   const [holes, setHoles] = useState("");
   const [time, setTime] = useState("");
   const [date, setDate] = useState(0);
-  const [openSpots, setOpenSpots] = useState(0)
+  const [openSpots, setOpenSpots] = useState(0);
 
   useEffect(() => {
     fetch(`/tee_times`)
@@ -31,7 +31,7 @@ function TeeTimes({ user, formatDate }) {
       .then((newTeeTime) => setAllTeeTimes([...allTeeTimes, newTeeTime]));
   };
 
-  console.log(date)
+  console.log(date);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +46,7 @@ function TeeTimes({ user, formatDate }) {
     };
     addTeeTime(newTeeTime);
     e.target.reset();
-    window.location.reload()
+    window.location.reload();
   };
 
   return (
@@ -54,7 +54,12 @@ function TeeTimes({ user, formatDate }) {
       <div className="tee-times-posts">
         <div className="tee-times-inner-posts">
           {allTeeTimes.map((tt) => (
-            <TeeCard key={tt.id} teetime={tt} formatDate={formatDate}/>
+            <TeeCard
+              key={tt.id}
+              teetime={tt}
+              formatDate={formatDate}
+              user={user}
+            />
           ))}
         </div>
       </div>
@@ -87,16 +92,16 @@ function TeeTimes({ user, formatDate }) {
             <option value="2">2 spots</option>
             <option value="3">3 spots</option>
           </select>
-          <label style={{marginTop: '20px'}}>Tee Time:</label>
+          <label style={{ marginTop: "20px" }}>Tee Time:</label>
           <input type="time" onChange={(e) => setTime(e.target.value)}></input>
-          <label style={{marginTop: '20px'}}>Date:</label>
+          <label style={{ marginTop: "20px" }}>Date:</label>
           <input type="date" onChange={(e) => setDate(e.target.value)}></input>
           <div>
             <input
-                type="submit"
-                value="post tee time!"
-                style={{ marginTop: "20px" }}
-              />
+              type="submit"
+              value="post tee time!"
+              style={{ marginTop: "20px" }}
+            />
           </div>
         </form>
       </div>
