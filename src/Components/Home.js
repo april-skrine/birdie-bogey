@@ -12,7 +12,7 @@ function Home({ user }) {
               fontSize: "100px",
             }}
           >
-            welcome to bb, {user.name}!
+            welcome to bb, {user && user.name}!
           </h1>
         </div>
         <div>recs here</div>

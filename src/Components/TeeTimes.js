@@ -13,6 +13,7 @@ function TeeTimes({ user, formatDate }) {
   const [holes, setHoles] = useState("");
   const [time, setTime] = useState("");
   const [date, setDate] = useState(0);
+  const [openSpots, setOpenSpots] = useState(0)
 
   useEffect(() => {
     fetch(`/tee_times`)
@@ -38,6 +39,7 @@ function TeeTimes({ user, formatDate }) {
       golf_course: golfCourse,
       location: location,
       number_of_holes: holes,
+      open_spots: openSpots,
       date: date,
       time: time,
       user_id: user.id,
@@ -77,6 +79,13 @@ function TeeTimes({ user, formatDate }) {
             <option value="select"></option>
             <option value="18">18 holes</option>
             <option value="9">9 holes</option>
+          </select>
+          <label>Open sports:</label>
+          <select name="spots" onChange={(e) => setOpenSpots(e.target.value)}>
+            <option value="select"></option>
+            <option value="1">1 spot</option>
+            <option value="2">2 spots</option>
+            <option value="3">3 spots</option>
           </select>
           <label style={{marginTop: '20px'}}>Tee Time:</label>
           <input type="time" onChange={(e) => setTime(e.target.value)}></input>

@@ -1,11 +1,11 @@
 import React from "react";
 import ScoreCard from "./ScoreCard";
 
-function UserScores({ user, formatDate }) {
+function UserScores({ user, userScores, formatDate }) {
   return (
     <div className="scores-flex">
       {user &&
-        user.round_scores
+        userScores
           .map((round, i) => <ScoreCard round={round} key={i} formatDate={formatDate}/>)
           .reverse()
           .splice(0, 5)}

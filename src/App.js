@@ -50,7 +50,7 @@ function App() {
   return (
     <div style={{ backgroundColor: "#71EF8B" }}>
       <div className="container-main">
-        <div style={{ backgroundColor: "#71EF8B" }}>
+        <div className="nav-bar-container">
           <NavBar user={user} handleLogout={handleLogout} />
         </div>
         <Routes>
@@ -109,7 +109,11 @@ function App() {
             element={
               <div className="content-main">
                 {isAuthenticated ? (
-                  <UserScores user={user} userScores={userScores} formatDate={formatDate}/>
+                  <UserScores
+                    user={user}
+                    userScores={userScores}
+                    formatDate={formatDate}
+                  />
                 ) : (
                   <NotLoggedIn />
                 )}
@@ -121,7 +125,11 @@ function App() {
             path="/tee-times"
             element={
               <div className="content-main">
-                {isAuthenticated ? <TeeTimes user={user} formatDate={formatDate}/> : <NotLoggedIn />}
+                {isAuthenticated ? (
+                  <TeeTimes user={user} formatDate={formatDate} />
+                ) : (
+                  <NotLoggedIn />
+                )}
               </div>
             }
           />

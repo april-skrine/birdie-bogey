@@ -1,12 +1,12 @@
 /* APP CSS START */
 
 .container-main {
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   background-color: #71ef8b;
   margin-left: 10px;
   margin-right: 10px;
@@ -224,6 +224,19 @@ span {
   flex-direction: row;
 }
 
+.tee-button {
+  border: 2px solid white;
+  background-color: #29923e;
+  color: white;
+  font-family: 'zilla slab'
+}
+
+.tee-button:hover {
+  border: 2px solid #29923e;
+  background-color: white;
+  color: #29923e;
+}
+
 .tee-times-posts {
   background-image: url("https://res.cloudinary.com/april-skrine/image/upload/v1649779048/birdie.bogey/teetimes3_zttjpt.jpg");
   background-repeat: no-repeat;
@@ -271,7 +284,7 @@ span {
   text-align: center;
   vertical-align: center;
   line-height: 50px;
-  margin-top: 100px;
+  margin-top: 130px;
 }
 
 .button-weather {
