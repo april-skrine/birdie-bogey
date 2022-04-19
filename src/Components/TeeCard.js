@@ -3,30 +3,29 @@ import moment from "moment";
 
 function TeeCard({ user, teetime, formatDate }) {
   const [joinedUsers, setJoinedUsers] = useState([]);
+  const [openSpots, setOpenSpots] = useState(teetime.open_spots)
 
   const joinTeeTime = () => {
     if (teetime.open_spots > 0) {
-      if (!joinedUsers.includes(user.name)) {
-        teetime.open_spots --;
-        const newArray = [...joinedUsers, user.name];
-        const newUTT = { user_id: user.id, tee_time_id: teetime.id };
-        setJoinedUsers(newArray);
-        fetch(`/tee_times/${teetime.id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(teetime),
-        })
-          .then((r) => r.json())
-        fetch(`/user_tee_times`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newUTT),
-        });
-      } else {
-        alert("You already joined this round!");
-      }
+      const newUTT = { user_id: user.id, tee_time_id: teetime.id };
+      fetch(`/user_tee_times`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(newUTT)
+      })
+      .then(r=>{
+        if (r.ok) {
+          r.json().then(data => {
+            const newArray = [...joinedUsers, user.name];
+            setJoinedUsers(newArray);
+            console.log(data)
+            setOpenSpots(data.open_spots)
+          })
+        }
+        else {
+          alert('You already joined this tee time!')
+        }
+      })
     } else {
       alert("Sorry, all spots have been filled!");
     }
@@ -49,8 +48,8 @@ function TeeCard({ user, teetime, formatDate }) {
           {moment(teetime.time).format("h:mm a")}, {teetime.number_of_holes}{" "}
           holes
         </p>
-        <p>Spots available: {teetime.open_spots}</p>
-        <p style={{ textAlign: "right", fontStyle: "italic" }}>
+        <p>Spots available: {openSpots}</p>
+        <p style={{ textAlign: "right", fontStyle: "italic", marginRight: '40px'}}>
           posted by: {teetime.user.name}
         </p>
         {joinedUsers.map((u) => (

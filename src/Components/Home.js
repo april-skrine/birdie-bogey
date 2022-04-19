@@ -15,8 +15,21 @@ function Home({ user }) {
             welcome to bb, {user && user.name}!
           </h1>
         </div>
-        <div>recs here</div>
-        <div>most recent tee time here</div>
+        <div className="ball-img">
+          <img
+            id="rotate-golf-ball"
+            src="https://res.cloudinary.com/april-skrine/image/upload/v1649173862/birdie.bogey/golfballmenu-removebg-preview_ovqmcp.png"
+            alt="golf ball"
+            style={{marginTop: '300px'}}
+          />
+        </div>
+        <div>
+          <img
+            src="https://res.cloudinary.com/april-skrine/image/upload/v1650398694/birdie.bogey/hole2-removebg-preview_ju0rgn.png"
+            alt="hole"
+            style={{position: 'absolute', left: '1200px', marginTop: '300px'}}
+          />
+        </div>
       </div>
     </div>
   );

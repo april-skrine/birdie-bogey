@@ -31,7 +31,7 @@ function TeeTimes({ user, formatDate }) {
       .then((newTeeTime) => setAllTeeTimes([...allTeeTimes, newTeeTime]));
   };
 
-  console.log(date);
+  console.log(allTeeTimes)
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +53,7 @@ function TeeTimes({ user, formatDate }) {
     <div className="tee-time-flex">
       <div className="tee-times-posts">
         <div className="tee-times-inner-posts">
-          {allTeeTimes.map((tt) => (
+          {allTeeTimes && allTeeTimes.map((tt) => (
             <TeeCard
               key={tt.id}
               teetime={tt}

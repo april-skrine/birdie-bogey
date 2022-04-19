@@ -7,7 +7,7 @@ function Login({ setCurrentUser, setIsAuthenticated, setUserScores }) {
 
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  function handleLogin(e) {
     e.preventDefault();
     fetch("/login", {
       method: "POST",
@@ -43,7 +43,7 @@ function Login({ setCurrentUser, setIsAuthenticated, setUserScores }) {
           />
         </div>
         <div>
-          <form onSubmit={handleSubmit} className="form-style-4">
+          <form onSubmit={handleLogin} className="form-style-4">
             <label>username:</label>
             <input
               type="text"
