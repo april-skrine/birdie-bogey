@@ -4,7 +4,11 @@ import moment from "moment";
 function TeeCard({ user, teetime, formatDate }) {
   const [joinedUsers, setJoinedUsers] = useState([]);
   const [openSpots, setOpenSpots] = useState(teetime.open_spots);
+  const [viewPlayers, toggleViewPlayers] = useState(false);
 
+  const toggleState = () => {
+    toggleViewPlayers(!viewPlayers);
+  };
 
   const joinTeeTime = () => {
     if (teetime.open_spots > 0) {
@@ -56,6 +60,9 @@ function TeeCard({ user, teetime, formatDate }) {
         >
           posted by: {teetime.user.name}
         </p>
+        <div style={{ fontFamily: "just another hand", color: "#29923e" }}>
+          {viewPlayers ? teetime.players.map((p) => <p>{p}</p>) : null}
+        </div>
         {joinedUsers.map((u) => (
           <p style={{ color: "#29923e" }} key={u.id}>
             {u} joined!
@@ -64,6 +71,9 @@ function TeeCard({ user, teetime, formatDate }) {
       </div>
       <button className="tee-button" onClick={joinTeeTime}>
         Join Tee Time
+      </button>
+      <button className="tee-button" onClick={toggleState}>
+        Show Players
       </button>
     </div>
   );
