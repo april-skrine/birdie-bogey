@@ -90,7 +90,11 @@ function App() {
             path="/home"
             element={
               <div className="content-main">
-                <Home user={user} />
+                <Home
+                  user={user}
+                  userScores={userScores}
+                  formatDate={formatDate}
+                />
               </div>
             }
           />

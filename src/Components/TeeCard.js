@@ -3,29 +3,27 @@ import moment from "moment";
 
 function TeeCard({ user, teetime, formatDate }) {
   const [joinedUsers, setJoinedUsers] = useState([]);
-  const [openSpots, setOpenSpots] = useState(teetime.open_spots)
+  const [openSpots, setOpenSpots] = useState(teetime.open_spots);
+
 
   const joinTeeTime = () => {
     if (teetime.open_spots > 0) {
       const newUTT = { user_id: user.id, tee_time_id: teetime.id };
       fetch(`/user_tee_times`, {
         method: "POST",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(newUTT)
-      })
-      .then(r=>{
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newUTT),
+      }).then((r) => {
         if (r.ok) {
-          r.json().then(data => {
+          r.json().then((data) => {
             const newArray = [...joinedUsers, user.name];
             setJoinedUsers(newArray);
-            console.log(data)
-            setOpenSpots(data.open_spots)
-          })
+            setOpenSpots(data.open_spots);
+          });
+        } else {
+          alert("You already joined this tee time!");
         }
-        else {
-          alert('You already joined this tee time!')
-        }
-      })
+      });
     } else {
       alert("Sorry, all spots have been filled!");
     }
@@ -49,7 +47,13 @@ function TeeCard({ user, teetime, formatDate }) {
           holes
         </p>
         <p>Spots available: {openSpots}</p>
-        <p style={{ textAlign: "right", fontStyle: "italic", marginRight: '40px'}}>
+        <p
+          style={{
+            textAlign: "right",
+            fontStyle: "italic",
+            marginRight: "40px",
+          }}
+        >
           posted by: {teetime.user.name}
         </p>
         {joinedUsers.map((u) => (

@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TeeCard from "./TeeCard";
 
-// have an input where users can create a tee time
-// view all tee times currently posted (sort order?)
-// allow any user to comment on a tee time
-// allow the user who posted it to delete a tee time?
-
 function TeeTimes({ user, formatDate }) {
   const [allTeeTimes, setAllTeeTimes] = useState([]);
   const [golfCourse, setGolfCourse] = useState("");
@@ -31,8 +26,6 @@ function TeeTimes({ user, formatDate }) {
       .then((newTeeTime) => setAllTeeTimes([...allTeeTimes, newTeeTime]));
   };
 
-  console.log(allTeeTimes)
-
   const onSubmit = (e) => {
     e.preventDefault();
     const newTeeTime = {
@@ -53,14 +46,15 @@ function TeeTimes({ user, formatDate }) {
     <div className="tee-time-flex">
       <div className="tee-times-posts">
         <div className="tee-times-inner-posts">
-          {allTeeTimes && allTeeTimes.map((tt) => (
-            <TeeCard
-              key={tt.id}
-              teetime={tt}
-              formatDate={formatDate}
-              user={user}
-            />
-          ))}
+          {allTeeTimes &&
+            allTeeTimes.map((tt) => (
+              <TeeCard
+                key={tt.id}
+                teetime={tt}
+                formatDate={formatDate}
+                user={user}
+              />
+            ))}
         </div>
       </div>
       <div>
