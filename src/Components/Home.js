@@ -13,9 +13,11 @@ function Home({ user, formatDate }) {
     } else if (lastElement.total_score > 0) {
       return "Let's work on getting some strokes off.";
     } else if (lastElement.total_score == 0) {
-      return "Not bad! You scored even.";
+      return "Not bad! You shot par.";
     } else if (lastElement.total_score < 0) {
-      return "Impressive! You were under par.";
+      return "Impressive! You shot under par.";
+    } else if (lastElement.total_score < -4) {
+      return "Very impressive! You shot well under par!";
     }
   };
 
