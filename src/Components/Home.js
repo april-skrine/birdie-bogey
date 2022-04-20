@@ -1,11 +1,16 @@
 import React from "react";
 
 function Home({ user, formatDate }) {
+  console.log(user);
 
   const lastElement = user.round_scores[user.round_scores.length - 1];
 
+  console.log(lastElement);
+
   const whatToSay = () => {
-    if (lastElement.total_score > 0) {
+    if (lastElement === undefined) {
+      return "Can't give you suggestions if you don't play!";
+    } else if (lastElement.total_score > 0) {
       return "Let's work on getting some strokes off.";
     } else if (lastElement.total_score == 0) {
       return "Not bad! You scored even.";
@@ -28,8 +33,14 @@ function Home({ user, formatDate }) {
             welcome to bb, {user && user.name}!
           </h1>
           <h1>
-            You last played {lastElement.course} on{" "}
-            {formatDate(lastElement.date)}
+            {lastElement ? (
+              <p>
+                You last played ${lastElement.course} on
+                {formatDate(lastElement.date)}
+              </p>
+            ) : (
+              `You haven't logged a round yet!`
+            )}
           </h1>
           <h2 style={{ color: "#29923e", fontFamily: "zilla slab" }}>
             {user && whatToSay()}
