@@ -105,7 +105,7 @@ function EighteenHoles({ user, userScores, setUserScores }) {
     const newArray = [...userScores, newRoundScore];
     setUserScores(newArray);
     alert("Round saved successfully!");
-    navigate("/scratchpad");
+    navigate("/scores");
   };
 
   return (
