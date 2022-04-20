@@ -35,7 +35,7 @@ function Home({ user, formatDate }) {
           <h1>
             {lastElement ? (
               <p>
-                You last played ${lastElement.course} on
+                You last played {lastElement.course} on {''}
                 {formatDate(lastElement.date)}
               </p>
             ) : (
